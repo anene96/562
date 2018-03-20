@@ -5,7 +5,7 @@ require "conn.php";
 
     if(isset($_POST['submit']))
 	{
-    
+		$Index_No=$_SESSION['Index_No'];
 		$Gr_No=$_POST['Gr_No'];
         $Aadhar_No=$_POST['Aadhar_No'];
         $Student_Name=$_POST['Student_Name'];
@@ -18,7 +18,7 @@ require "conn.php";
         $Standard=$_POST['Standard'];
         $Percentage=$_POST['Percentage'];
         $sql = "INSERT INTO Student (Gr_No,Index_No, Aadhar_No,Student_Name,Father_Name,Mother_Name,Contact_No,Email_Id,DOB,Gender,Standard)
-		VALUES ('$Gr_No', 'GJ01CU','$Aadhar_No','$Student_Name','$Father_Name','$Mother_Name','$Contact_No','$Email_Id','$DOB','$Gender','$Standard' )";
+		VALUES ('$Gr_No', '$Index_No','$Aadhar_No','$Student_Name','$Father_Name','$Mother_Name','$Contact_No','$Email_Id','$DOB','$Gender','$Standard' )";
 		if ($conn->query($sql) === TRUE) 
 		{
 			echo "New record created successfully";
@@ -62,59 +62,107 @@ require "conn.php";
                                                         <form class="col s12" action="" id="form1" name="form1" method="post">
                                                             <div class="row">
                                                                 <div class="input-field col s6">
-                                                                    <input id="Gr_No" name="Gr_No" type="text" autofocus  class="validate">
-                                                                    <label for="Gr_No">Gr_No</label>
+                                                                    <input required id="Gr_No" name="Gr_No" type="text" autofocus  class="validate">
+                                                                    <label for="Gr_No">Gr No</label>
                                                                 </div>
                                                                 <div class="input-field col s6">
-                                                                    <input id="Aadhar_No" name="Aadhar_No" type="number" autofocus  class="validate">
-                                                                    <label for="Aadhar_No">Aadhar_No</label>
+                                                                    <input required id="Aadhar_No" onfocus=document.getElementById("Aadhar_No").value="" onblur="adhar_validate()" name="Aadhar_No" type="text" autofocus  class="validate">
+                                                                    <label for="Aadhar_No">Aadhar No</label><br>
+																	<script>
+																		function adhar_validate()
+																		{
+																			var a=document.getElementById("Aadhar_No").value;
+																			var len=a.length;
+																			
+																			if(a.match(/([0-9]{12})$/)&&len==12)
+																			{
+																				document.getElementById("Aadhar_No").style.borderColor="green";
+																			}	
+																			else
+																			{
+																				
+																				document.getElementById("Aadhar_No").style.borderColor="red";
+																				document.getElementById("Aadhar_No").value="Please enter a valid Aadhar number";
+																			}
+																				
+																		}
+																	
+																	</script>
+                                                                </div>
+                                                          </div>
+                                                          <div class="row">
+                                                                
+                                                                <div class="input-field col s12">
+                                                                    <input required id="Student_Name" name="Student_Name" type="text" autofocus  class="validate">
+                                                                    <label for="Student_Name">Student Name</label>
                                                                 </div>
                                                           </div>
                                                           <div class="row">
                                                                 <div class="input-field col s6">
-                                                                    <input id="Index_No" name="Index_No" type="text" autofocus  class="validate">
-                                                                    <label for="Index_No">Index_No</label>
+                                                                    <input required id="Father_Name" name="Father_Name" type="text" autofocus  class="validate">
+                                                                    <label for="Father_Name">Father Name</label>
                                                                 </div>
                                                                 <div class="input-field col s6">
-                                                                    <input id="Student_Name" name="Student_Name" type="text" autofocus  class="validate">
-                                                                    <label for="Student_Name">Student_Name</label>
-                                                                </div>
-                                                          </div>
-                                                          <div class="row">
-                                                                <div class="input-field col s6">
-                                                                    <input id="Father_Name" name="Father_Name" type="text" autofocus  class="validate">
-                                                                    <label for="Father_Name">Father_Name</label>
-                                                                </div>
-                                                                <div class="input-field col s6">
-                                                                    <input id="Mother_Name" name="Mother_Name" type="text" autofocus  class="validate">
-                                                                    <label for="Mother_Name">Mother_Name</label>
+                                                                    <input required id="Mother_Name" name="Mother_Name" type="text" autofocus  class="validate">
+                                                                    <label for="Mother_Name">Mother Name</label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="input-field col s6">
-                                                                    <input id="Contact_No" type="text"  name="Contact_No" type="text" autofocus  class="validate">
-                                                                    <label for="Contact_No">Contact_No</label>
+																
+																<div class="input-field col s0.5" >
+																<br>
+																
+																
+																	+91
+																	&nbsp
+																&nbsp
+																&nbsp
+																
+																</div>
+                                                                <div class="input-field col s5">
+                                                                    <label for="Contact_No">Contact No</label>
+																	<input required id="Contact_No"onfocus=document.getElementById("Contact_No").value="" onblur="contact_validate()" type="text"  name="Contact_No" type="text" autofocus  class="validate">
+                                                                    <script>
+																		
+																		function contact_validate()
+																		{
+																				var a=document.getElementById("Contact_No").value;
+																				var len=a.length;
+																				
+																			  if(a.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)&&len==10)
+																					{
+																				  document.getElementById("Contact_No").style.borderColor="green";
+																					}
+																				  else
+																					{
+																					document.getElementById("Contact_No").style.borderColor="red";
+																					document.getElementById("Contact_No").value="Please enter a valid Contact number";
+																					} 
+																		}
+																	
+																	</script>
                                                                 </div>
+																
                                                                 <div class="input-field col s6">
-                                                                    <input id="Email_Id" name="Email_Id" type="email" autofocus  class="validate">
-                                                                    <label for="Email_Id">Email_Id</label>
+                                                                    <input required id="Email_Id" name="Email_Id" type="email" autofocus  class="validate">
+                                                                    <label for="Email_Id">Email Id</label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
                                                                 <div class="input-field col s6">
                                                                     <label for="DOB">DOB</label>
 																	<br>
-																	<input id="DOB" name="DOB" type="date" autofocus  class="validate">
+																	<input required id="DOB" name="DOB" type="date" autofocus  class="validate">
                                                                     
                                                                 </div>
 															
 																<br>
 																<div>
-                                                                <input type="radio" name="gender" value="Male" id="Male" />
+                                                                <input type="radio" name="Gender" value="Male" id="Male" />
 																	  <label for="Male">Male</label>
 																	&nbsp
 																   														 
-																   <input type="radio" name="gender" value="Female" id="Female" />
+																   <input required type="radio" name="Gender" value="Female" id="Female" />
 																	  <label for="Female">Female</label>
 																</div>
 																</div>
@@ -134,7 +182,7 @@ require "conn.php";
 																	</select>
                                                                 </div>
                                                                 <div class="input-field col s6">
-                                                                    <input id="Percentage" name="Percentage" type="text" autofocus  class="validate">
+                                                                    <input required id="Percentage" name="Percentage" type="text" autofocus  class="validate">
                                                                     <label for="Percentage">Percentage</label>
                                                                 </div>
 																
