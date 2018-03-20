@@ -39,6 +39,9 @@ require "conn.php";
      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
      <title>Add Student</title>
    </head>
+   
+   
+   
 <body>
     <?php include("header.php");?>
         <div class="container">
@@ -49,11 +52,13 @@ require "conn.php";
                             <div class="card-content">
                                 <span class="card-title"> 
                                     <h2><b>Register New Students</b></h2>
+									
                                   </span>
                                         <div>
                                             <h4>Student's Information</h4>
 											
                                                 <div class="row">
+													
                                                         <form class="col s12" action="" id="form1" name="form1" method="post">
                                                             <div class="row">
                                                                 <div class="input-field col s6">
@@ -87,7 +92,7 @@ require "conn.php";
                                                             </div>
                                                             <div class="row">
                                                                 <div class="input-field col s6">
-                                                                    <input id="Contact_No" name="Contact_No" type="text" autofocus  class="validate">
+                                                                    <input id="Contact_No" type="text"  name="Contact_No" type="text" autofocus  class="validate">
                                                                     <label for="Contact_No">Contact_No</label>
                                                                 </div>
                                                                 <div class="input-field col s6">
@@ -114,8 +119,9 @@ require "conn.php";
 																</div>
 																</div>
                                                             <div class="row">
+															 
                                                                 <div class="input-field col s6">
-                                                                    <select name="Standard"  > 
+                                                                    <select name="Standard"  onchange="showUser1(this.value)"> 
 																	  <option value="" disabled selected>Select Standard</option>
 																	  <option value="1">1</option>
 																	  <option value="2">2</option>
@@ -131,6 +137,7 @@ require "conn.php";
                                                                     <input id="Percentage" name="Percentage" type="text" autofocus  class="validate">
                                                                     <label for="Percentage">Percentage</label>
                                                                 </div>
+																
                                                             </div>
                                                             <input class="btn waves-effect waves-light" type="submit"  name="submit" id="submit" value="Add Student" />
                                                           </form>
@@ -145,10 +152,18 @@ require "conn.php";
             
 
     <!--Import jQuery before materialize.js-->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-
+    <script src="app.js"></script>
     <script>
+	 $(document).ready(function(){
+    // the "href" attribute of the modal trigger must specify the modal ID that wants to be triggered
+    $('.modal').modal();
+  });
+
+	$(document).ready(function() {
+    $('select').material_select();
+  });
        $(".button-collapse").sideNav();
 
         // Init Sidenav
