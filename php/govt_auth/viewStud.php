@@ -32,6 +32,8 @@ include "conn.php";
             
 		 <form method="POST" action="">
 			  <p>
+			  &nbsp
+   
       <input type="checkbox" name="type[]" value="Ext_Academics" id="Ext_Academics" />
       <label for="Ext_Academics"> Academics</label>
    &nbsp
@@ -47,7 +49,8 @@ include "conn.php";
       <label for="Ext_Sports">Sports</label>
 	 
 
-
+<br>
+<br>
 
 	  <div class="input-field col s3">
 				<input id="percentage" type="text" name="Percentage" class="validate">
@@ -78,7 +81,7 @@ include "conn.php";
     
   </div> 
 
-<br>
+
 
  
 
@@ -88,7 +91,10 @@ include "conn.php";
 <br><br><br>
 	 
 	  <div style="margin-top: -5%;">
-    <h5><b>Gender</b></h5>
+    &nbsp
+   <h5><b>Gender</b></h5>
+   &nbsp
+   
    <input type="checkbox" name="gender" value="Male" id="Male" />
       <label for="Male"> Male</label>
       
@@ -116,19 +122,18 @@ include "conn.php";
                   <thead>
                     <tr>
                      
-                      
-                      <th>Aadhar No.</th>
-                      <th>Index No.</th>
-                      <th>Student Name</th>
-                      <th>Contact No</th>
-                      <th>Email-Id</th>
-                      <th>Gender</th>
-                      <th>Standard</th>
-                      <th>Percentage</th>
-                      <th>CPA</th>
-                      <th>Extetrnal Academics</th>
-                      <th>External Sports</th>
-                      <th>External Cultural</th>
+
+                      <th>Aadhar No.</th>&nbsp
+                      <th>Index No.</th>&nbsp
+                      <th>Student Name</th>&nbsp
+                      <th>Contact No</th>&nbsp
+                      <th>Email-Id</th>&nbsp
+                      <th>Gender</th>&nbsp
+                      <th>Standard</th>&nbsp
+                      <th>Percentage</th>&nbsp
+                      <th>Extetrnal Academics</th>&nbsp
+                      <th>External Sports</th>&nbsp
+                      <th>External Cultural</th>&nbsp
                     </tr>
                   </thead>
                   <tbody>
@@ -231,17 +236,16 @@ $result = $conn->query($sql);
 					<td><?php echo $row1['Aadhar_No'];?></td>
 					<td><?php echo $row1['Index_No'];?></td>
 					<td><?php echo $row1['Student_Name'];?></td>
-					<td><?php echo $row1['Father_Name'];?></td>
 					<td><?php echo $row1['Contact_No'];?></td>
 					<td><?php echo $row1['Email_Id'];?></td>
-					<td><?php echo $row1['DOB'];?></td>
 					<td><?php echo $row1['Gender'];?></td>
 					<td><?php echo $row1['Standard'];?></td>
 					<td><?php echo $row1['Percentage'];?></td>
-					<td><?php echo $row1['C_Percentage'];?></td>
 					<td><?php echo $row1['Ext_Academics'];?></td>
-					<td><?php echo $row1['C_Ext_Academics'];?></td>
-                      
+					<td><?php echo $row1['Ext_Sports'];?></td>
+					<td><?php echo $row1['Ext_Cultural'];?></td>
+					
+					  
                       <td><div class="col mdc-button" data-mdc-auto-init="MDCRipple"><i class="mdi mdi-heart text-blue"></i></div><div class="col mdc-button" data-mdc-auto-init="MDCRipple"><i class="mdi mdi-forum text-yellow"></i></div><div class="col mdc-button" data-mdc-auto-init="MDCRipple"><i class="mdi mdi-delete text-red"></i></div></td>
                     </tr>
                  
