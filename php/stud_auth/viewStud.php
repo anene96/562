@@ -110,7 +110,7 @@ if(!isset($_SESSION['Index_No']))
                   <div class="row">
                       
 					  <div class="input-field col s6">
-                                <input id="GR_no" type="number" class="validate">
+                                <input id="GR_no" type="text" class="validate">
                                 <label for="GR_no">G.R. Number: <?php echo $grnum;
 									$_SESSION["Gr_No"] = $grnum;
 									?></label>
@@ -166,7 +166,8 @@ if(!isset($_SESSION['Index_No']))
                             <label for="percentage">Percentage: <?php echo $row1['Percentage'];?></label>
                           </div>
                         </div>
-						
+						 <input type="button" onclick="update.php" value="Update details" class="btn">
+						<br><br>
 						<h4>Extra Curriculum</h4>
                                         <div class="card-content">
                                             <span class="card-title"></span>
@@ -180,9 +181,8 @@ if(!isset($_SESSION['Index_No']))
 											  <option  value="Cultural",name="val2",id="val2">Cultural</option>
 												</select>
 											
-												</div> <br>
-                                            
-												
+											</div> 
+											<br>
 												<div class="input-field col s12">  
                                               
                                             
@@ -192,6 +192,7 @@ if(!isset($_SESSION['Index_No']))
 											  <option  value="2">Second</option>
 											  <option  value="3">Third</option>	
 											</select>
+											</div>
 											<div class="input-field col s12">
 											  <select name="val1" id="val1" >
 											  <option  value=""  >Select Category</option>
@@ -203,7 +204,7 @@ if(!isset($_SESSION['Index_No']))
 											</select>
 											
 											</div> <br>
-												</div>
+												
 												<div class="row">
 
                                                 <div class="input-field col s12">
@@ -236,10 +237,11 @@ if(!isset($_SESSION['Index_No']))
                         </div> -->
                                       
                                         
-                              
+                    
               </div>
                   <div class="modal-footer">
                       <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Close</a>
+					   
                   </div>
             </div>
              
