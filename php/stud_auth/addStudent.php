@@ -17,7 +17,7 @@
 			$Gender=$_POST['Gender'];
 			$Standard=$_POST['Standard'];
 			$sql = "INSERT INTO Student (Gr_No,Aadhar_No, Index_No,Student_Name,Father_Name,Mother_Name,Contact_No,Email_Id,DOB,Gender,Standard)
-			VALUES ('$Gr_No', '$$Aadhar_No','$Index_No','$Student_Name','$Father_Name','$Mother_Name','$Contact_No','$Email_Id','$DOB','$Gender','$Standard' )";
+			VALUES ('$Gr_No', '$Aadhar_No','$Index_No','$Student_Name','$Father_Name','$Mother_Name','$Contact_No','$Email_Id','$DOB','$Gender','$Standard' )";
 			if ($conn->query($sql) === TRUE) 
 			{
 	?>
@@ -175,7 +175,7 @@
 			function name_validate(a)
 			{
 				var b=a.value;
-				if(b.match(/[a-zA-Z\-'\s]+/))
+				if(b.match(/^[A-Za-z\s]+$/))
 				{
 					a.style.borderColor="green";
 					document.getElementById("submit").disabled=false;
