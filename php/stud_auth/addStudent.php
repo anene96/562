@@ -5,7 +5,7 @@
 		session_start();
 		if(isset($_POST['submit'])&&isset($_SESSION['Index_No']))
 		{
-			$Index_No=$_SESSION['Index_No'];
+			echo $Index_No=$_SESSION['Index_No'];
 			$Gr_No=$_POST['Gr_No'];
 			$Aadhar_No=$_POST['Aadhar_No'];
 			$Student_Name=$_POST['Student_Name'];
@@ -17,25 +17,29 @@
 			$Gender=$_POST['Gender'];
 			$Standard=$_POST['Standard'];
 			$sql = "INSERT INTO Student (Gr_No,Aadhar_No, Index_No,Student_Name,Father_Name,Mother_Name,Contact_No,Email_Id,DOB,Gender,Standard)
-			VALUES ('$Gr_No', '$$Aadhar_No','$Index_No','$Student_Name','$Father_Name','$Mother_Name','$Contact_No','$Email_Id','$DOB','$Gender','$Standard' )";
+			VALUES ('$Gr_No', '$Aadhar_No','$Index_No','$Student_Name','$Father_Name','$Mother_Name','$Contact_No','$Email_Id','$DOB','$Gender','$Standard' )";
 			if ($conn->query($sql) === TRUE) 
 			{
 	?>
 			<script>
-			alert("New record created successfully");
+				alert("New record created successfully");
 			</script>
 	<?php 
 			}
-			else
-			{
+			else{
 	?>
 			<script>
-			alert("Record could not be created");
+				alert("Record could not be created");
 			</script>
 	<?php 
-			header("location:addStudent.php");
 			}
+			
 		}
+		elseif(!isset($_SESSION['Index_No']))
+			{
+	
+			header("location:login.php");
+			}
 	?>
 	<head>
 		<!--Import Google Icon Font-->
@@ -100,7 +104,7 @@
 											<div class="input-field col s6">
 												<label for="DOB">DOB</label>
 												<br>
-												<input required id="DOB" name="DOB" type="date" autofocus  class="validate">
+												<input required id="DOB" name="DOB"  type="date" autofocus  class="validate">
 											</div>
 											<br>
 											<div><br>
@@ -175,7 +179,7 @@
 			function name_validate(a)
 			{
 				var b=a.value;
-				if(b.match(/[a-zA-Z\-'\s]+/))
+				if(b.match(/^[A-Za-z\s]+$/))
 				{
 					a.style.borderColor="green";
 					document.getElementById("submit").disabled=false;
@@ -206,6 +210,7 @@
 				}
 			}
 		</script>		
+		
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
