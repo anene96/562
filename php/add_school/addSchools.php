@@ -2,23 +2,18 @@
 require "conn.php";
     if(isset($_POST['submit'])){
     
-			$School_Name=$_POST['School_Name'];
-            $Address=$_POST['Address'];
-            $District=$_POST['District'];
+			
             $Index_No=$_POST['Index_No'];
             $Password=$_POST['Password'];
-            $Email_Id=$_POST['Email_Id'];
-            $Phone_No=$_POST['Phone_No'];
-			$Board=$_POST['Board'];
-            $Type=$_POST['Type'];   
+            $Email_Id=$_POST['Email_Id']; 
             $R_Name = $_POST["R_Name"];
             $R_Email = $_POST["R_Email"];
             $Mobile_No = $_POST["Mobile_No"];
             $R_Password=$_POST['R_Password'];
 
-              $Password = md5($Password);      
+             $R_Password = md5($R_Password);      
 
- $sql = "SELECT * FROM School_Index WHERE Index_No ='$Index_No' and Password ='$Password'";
+			$sql = "SELECT * FROM School_Index WHERE Index_No ='$Index_No' and Password ='$Password'";
 
 
                         if($conn->query($sql))

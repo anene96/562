@@ -38,86 +38,52 @@
                                           <h4>School's Information</h4>
                                                 <div class="row">
                                                   <form class="col s12" action="addSchools.php" id="form1" name="form1" method="post">
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="School_Name" name="School_Name" type="text" autofocus required="required" class="validate">
-                                                            <label for="School_Name">School_Name</label>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="Address" name="Address" type="number" autofocus class="validate">
-                                                            <label for="Address">Address</label>
-                                                        </div>
-                                                  </div>
+                                                    
                                                   <div class="row">
+												  <div class="input-field col s6">
+                                                            <input required id="Index_No" name="Index_No" type="text" autofocus class="validate">
+                                                            <label for="Index_No">Index_No</label>
+                                                        </div>
                                                     <div class="input-field col s6">
-                                                        <input id="Password" name="Password" type="text" autofocus required="required" class="validate">
+                                                        <input required id="Password" name="Password" type="password" autofocus required="required" class="validate">
                                                         <label for="Password">Password</label>
                                                     </div>
                                                     
                                               </div>
-                                                  <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="Index_No" name="Index_No" type="text" autofocus class="validate">
-                                                            <label for="Index_No">Index_No</label>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="District" name="District" type="text" autofocus class="validate">
-                                                            <label for="District">District</label>
-                                                        </div>
-                                                  </div>
-
-                                                  <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="Email_Id" name="Email_Id" type="text" autofocus class="validate">
-                                                            <label for="Email_Id">Email_Id</label>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="Phone_No" name="Phone_No" type="text" autofocus class="validate">
-                                                            <label for="Phone_No">Phone_No</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="Board" name="Board" type="text" autofocus class="validate">
-                                                            <label for="Board">Board</label>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="Type" name="Type" type="text" autofocus class="validate">
-                                                            <label for="Type">Type</label>
-                                                        </div>
-                                                    </div>
-
+                                                  
                                                     <span class="card-title"> 
                                                         <h4>School Representative</h4>
                                                     </span>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="R_Name" name="R_Name" type="text" autofocus class="validate">
-                                                            <label for="R_Name">R_Name</label>
+                                                            <input id="R_Name" name="R_Name" onblur="name_validate(document.getElementById('R_Name'))"type="text" autofocus class="validate">
+                                                            <label for="R_Name">Representative Name</label>
                                                         </div>
                                                         <div class="input-field col s6">
-                                                            <input id="R_Email" name="R_Email" type="text" autofocus class="validate">
-                                                            <label for="R_Email">R_Email</label>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row">
-                                                        <div class="input-field col s6">
-                                                            <input id="R_Password" name="R_Password" type="text" autofocus class="validate">
-                                                            <label for="R_Password">R_Password</label>
-                                                        </div>
-                                                        <div class="input-field col s6">
-                                                            <input id="Mobile_No" name="Mobile_No" type="text" autofocus class="validate">
-                                                            <label for="Mobile_No">Mobile_No</label>
+                                                            <input id="Email_Id" name="Email_Id" onblur="mail_validate()" type="text" autofocus class="validate">
+                                                            <label for="Email_Id">Email</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="R_PasswordCon" name="R_PasswordCon" type="text" autofocus class="validate">
-                                                            <label for="R_PasswordCon">Con Password</label>
+                                                            <input id="R_Password" name="R_Password" type="password" autofocus class="validate">
+                                                            <label for="Password">Password</label>
+                                                        </div>
+														<div class="input-field col s6">
+                                                            <input id="Cpassword" onblur="pass_validate()"name="Cpassword" type="password" autofocus class="validate">
+                                                            <label for="Cpassword">Confirm Password</label>
+                                                        </div>
+														
+                                                        
+                                                    </div>
+                                                    <div class="row">
+															<div class="input-field col s6">
+                                                            <input id="Mobile_No" name="Mobile_No" placeholder="+91"onfocus=document.getElementById("Mobile_No").value="" onblur="contact_validate()" type="text" autofocus class="validate">
+                                                            <label for="Mobile_No">Mobile No</label>      
                                                         </div>
                             
                                                     </div>
-                                                    <input class="btn waves-effect waves-light" type="submit" name="submit" id="submit" value="Add School" />
+                                                    <input class="btn waves-effect waves-light" type="submit" name="submit" id="submit" disabled="disabled" value="Add Representative" />
                                                   </form>
                                                         </div>
                                                       </div>
@@ -131,12 +97,90 @@
     <!--Import jQuery before materialize.js-->
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<script>
+		function pass_validate()
+		{
+			var pass=document.getElementById('R_Password').value;
+			var cpass=document.getElementById('Cpassword').value;
+			if(pass!=cpass)
+					alert('Confirm password does not match');
+		}
+		function contact_validate()
+		{
+				var a=document.getElementById("Mobile_No").value;
+				var len=a.length;
+				if(a.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)&&len==10)
+				{
+				  document.getElementById("Mobile_No").style.borderColor="green";
+				}
+				 else
+				{
+					document.getElementById("Mobile_No").style.borderColor="red";
+					document.getElementById("Mobile_No").value="\t\t\tPlease enter a valid Contact number";
+				} 
+		}
+		function mail_validate()
+		{
+			var a=document.getElementById("Email_Id").value;
+			if(a.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/))
+			{
+				 document.getElementById("Email_Id").style.borderColor="green";
+			}
+			 else
+			{
+				document.getElementById("Email_Id").style.borderColor="red";
+				document.getElementById("Email_Id").value="\t\t\t Please enter a valid Email ID";
+			} 
+		}
+		
+		function name_validate(a)
+		{
+			var b=a.value;
+			if(b.match(/^[A-Za-z\s]+$/))
+			{
+				a.style.borderColor="green";
+			}	
+			else
+			{
+																				
+					a.style.borderColor="red";
+					a.value="\t\t\t\t  Please enter a valid Name";
+				}
+																				
+		}
+		
+		(function() {
+				$('form > input').keyup(function()
+				{
+					var empty = false;
+					$('form > input').each(function()
+					{
+						if ($(this).val() == '') {
+							empty = true;
+						}
+					});
 
+					if (empty)
+					{
+						$('#register').attr('disabled', 'disabled');
+					} 
+					else 
+					{
+						$('#submit').removeAttr('disabled');
+					}
+    });
+})()
+
+	</script>	
+	
+	
     <script>
        $(".button-collapse").sideNav();
 
         // Init Sidenav
         $('.button-collapse').sideNav();
+		
+	
     </script>
     <script>
          $('.datepicker').pickadate({
