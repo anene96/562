@@ -5,7 +5,7 @@
 		session_start();
 		if(isset($_POST['submit'])&&isset($_SESSION['Index_No']))
 		{
-			$Index_No=$_SESSION['Index_No'];
+			echo $Index_No=$_SESSION['Index_No'];
 			$Gr_No=$_POST['Gr_No'];
 			$Aadhar_No=$_POST['Aadhar_No'];
 			$Student_Name=$_POST['Student_Name'];
@@ -22,20 +22,24 @@
 			{
 	?>
 			<script>
-			alert("New record created successfully");
+				alert("New record created successfully");
 			</script>
 	<?php 
 			}
-			else
-			{
+			else{
 	?>
 			<script>
-			alert("Record could not be created");
+				alert("Record could not be created");
 			</script>
 	<?php 
-			header("location:addStudent.php");
 			}
+			
 		}
+		else
+			{
+	
+			header("location:login.php");
+			}
 	?>
 	<head>
 		<!--Import Google Icon Font-->
@@ -47,7 +51,8 @@
 		<title>Add Student</title>
 	</head>
 	<body>
-		<?php include("header.php");?>
+		<?php include("header.php");
+		?>
 		<div class="container">
 			<div class="row">
 				<div class="col s12">
