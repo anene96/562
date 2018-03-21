@@ -35,7 +35,7 @@
 			}
 			
 		}
-		else
+		elseif(!isset($_SESSION['Index_No']))
 			{
 	
 			header("location:login.php");
@@ -51,8 +51,7 @@
 		<title>Add Student</title>
 	</head>
 	<body>
-		<?php include("header.php");
-		?>
+		<?php include("header.php");?>
 		<div class="container">
 			<div class="row">
 				<div class="col s12">
@@ -105,7 +104,7 @@
 											<div class="input-field col s6">
 												<label for="DOB">DOB</label>
 												<br>
-												<input required id="DOB" name="DOB" type="date" autofocus  class="validate">
+												<input required id="DOB" name="DOB"  type="date" autofocus  class="validate">
 											</div>
 											<br>
 											<div><br>
@@ -211,6 +210,7 @@
 				}
 			}
 		</script>		
+		
 		<!--Import jQuery before materialize.js-->
 		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
