@@ -21,11 +21,19 @@ require "conn.php";
 		VALUES ('$Gr_No', '$Index_No','$Aadhar_No','$Student_Name','$Father_Name','$Mother_Name','$Contact_No','$Email_Id','$DOB','$Gender','$Standard' )";
 		if ($conn->query($sql) === TRUE) 
 		{
-			echo "New record created successfully";
-		}
+			?>
+			<script>
+			alert("New record created successfully");
+			</script>
+		<?php }
 		else
 		{
-			echo "Error: " . $sql . "<br>" . $conn->error;
+			?>
+			<script>
+			alert("New record created successfully");
+			</script>
+		<?php 
+			header("location:addStudent.php");
 		}
     }
 ?>
@@ -82,7 +90,7 @@ require "conn.php";
 																			{
 																				
 																				document.getElementById("Aadhar_No").style.borderColor="red";
-																				document.getElementById("Aadhar_No").value="Please enter a valid Aadhar number";
+																				document.getElementById("Aadhar_No").value="\t\t\tPlease enter a valid Aadhar number";
 																			}
 																				
 																		}
@@ -93,35 +101,48 @@ require "conn.php";
                                                           <div class="row">
                                                                 
                                                                 <div class="input-field col s12">
-                                                                    <input required id="Student_Name" name="Student_Name" type="text" autofocus  class="validate">
+                                                                    <input required id="Student_Name"onfocus=document.getElementById("Student_Name").value="" onblur="name_validate(document.getElementById('Student_Name'))" name="Student_Name" type="text" autofocus  class="validate">
                                                                     <label for="Student_Name">Student Name</label>
+																	<script>
+																		function name_validate(a)
+																		{
+																			var b=a.value;
+																			
+																			if(b.match(/[a-zA-Z\-'\s]+/))
+																			{
+																				a.style.borderColor="green";
+																			}	
+																			else
+																			{
+																				
+																				a.style.borderColor="red";
+																				a.value="\t\t\t\t  Please enter a valid Name";
+																			}
+																				
+																		}
+																	
+																	</script>
                                                                 </div>
                                                           </div>
                                                           <div class="row">
                                                                 <div class="input-field col s6">
-                                                                    <input required id="Father_Name" name="Father_Name" type="text" autofocus  class="validate">
+                                                                    <input required id="Father_Name" onfocus=document.getElementById("Father_Name").value="" onblur="name_validate(document.getElementById('Father_Name'))"name="Father_Name" type="text" autofocus  class="validate">
                                                                     <label for="Father_Name">Father Name</label>
+																	
                                                                 </div>
                                                                 <div class="input-field col s6">
-                                                                    <input required id="Mother_Name" name="Mother_Name" type="text" autofocus  class="validate">
+                                                                    <input required id="Mother_Name"onfocus=document.getElementById("Mother_Name").value="" onblur="name_validate(document.getElementById('Mother_Name'))" name="Mother_Name" type="text" autofocus  class="validate">
                                                                     <label for="Mother_Name">Mother Name</label>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
 																
-																<div class="input-field col s0.5" >
-																<br>
 																
 																
-																	+91
-																	&nbsp
-																&nbsp
-																&nbsp
 																
-																</div>
-                                                                <div class="input-field col s5">
+                                                                <div class="input-field col s6">
                                                                     <label for="Contact_No">Contact No</label>
-																	<input required id="Contact_No"onfocus=document.getElementById("Contact_No").value="" onblur="contact_validate()" type="text"  name="Contact_No" type="text" autofocus  class="validate">
+																	<input required id="Contact_No"placeholder="+91"onfocus=document.getElementById("Contact_No").value="" onblur="contact_validate()" type="text"  name="Contact_No" type="text" autofocus  class="validate">
                                                                     <script>
 																		
 																		function contact_validate()
@@ -136,7 +157,7 @@ require "conn.php";
 																				  else
 																					{
 																					document.getElementById("Contact_No").style.borderColor="red";
-																					document.getElementById("Contact_No").value="Please enter a valid Contact number";
+																					document.getElementById("Contact_No").value="\t\t\tPlease enter a valid Contact number";
 																					} 
 																		}
 																	
@@ -144,8 +165,26 @@ require "conn.php";
                                                                 </div>
 																
                                                                 <div class="input-field col s6">
-                                                                    <input required id="Email_Id" name="Email_Id" type="email" autofocus  class="validate">
+                                                                    <input required id="Email_Id" onfocus=document.getElementById("Email_Id").value="" onblur="mail_validate()" name="Email_Id" type="text" autofocus  class="validate">
                                                                     <label for="Email_Id">Email Id</label>
+																	<script>
+																		
+																		function mail_validate()
+																		{
+																				var a=document.getElementById("Email_Id").value;
+																				
+																			  if(a.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/))
+																					{
+																				  document.getElementById("Email_Id").style.borderColor="green";
+																					}
+																				  else
+																					{
+																					document.getElementById("Email_Id").style.borderColor="red";
+																					document.getElementById("Email_Id").value="\t\t\t Please enter a valid Email ID";
+																					} 
+																		}
+																	
+																	</script>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
@@ -157,7 +196,7 @@ require "conn.php";
                                                                 </div>
 															
 																<br>
-																<div>
+																<div><br>
                                                                 <input type="radio" name="Gender" value="Male" id="Male" />
 																	  <label for="Male">Male</label>
 																	&nbsp
@@ -169,7 +208,7 @@ require "conn.php";
                                                             <div class="row">
 															 
                                                                 <div class="input-field col s6">
-                                                                    <select name="Standard"  onchange="showUser1(this.value)"> 
+                                                                    <select name="Standard" required onchange="showUser1(this.value)"> 
 																	  <option value="" disabled selected>Select Standard</option>
 																	  <option value="1">1</option>
 																	  <option value="2">2</option>
@@ -182,8 +221,24 @@ require "conn.php";
 																	</select>
                                                                 </div>
                                                                 <div class="input-field col s6">
-                                                                    <input required id="Percentage" name="Percentage" type="text" autofocus  class="validate">
+                                                                    <input required id="Percentage"onfocus=document.getElementById("Percentage").value="" onblur="percentage_validate()" name="Percentage" type="text" autofocus  class="validate">
                                                                     <label for="Percentage">Percentage</label>
+																	<script>
+																		function percentage_validate()
+																		{
+																				var a=document.getElementById("Percentage").value;
+																				
+																			  if(a.match(/^(\d+|\d+[.]\d+)%?$/)&&a<=100)
+																					{
+																				  document.getElementById("Percentage").style.borderColor="green";
+																					}
+																				  else
+																					{
+																					document.getElementById("Percentage").style.borderColor="red";
+																					document.getElementById("Percentage").value="\t\t\t\tPlease enter a valid Percentage value";
+																					} 
+																		}
+																	</script>
                                                                 </div>
 																
                                                             </div>
