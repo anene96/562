@@ -130,28 +130,28 @@ if(!isset($_SESSION['Index_No']))
                         <label for="first_name">Student's Name: <?php echo $fullname;?></label>	
                       </div>
 					  <div class="input-field col s6">
-                                      <input id="dob" type="text" class="datepicker">
+                                      <input id="dob" type="text" class="datepicker" onblur="date_validate()">
                                       <label for="dob">Birth Date: <?php echo $row1['DOB'];?></label>
                                     </div>
 					</div>
 					<div>
                       <div class="input-field col s6">
-                        <input id="parent_name" type="text" class="validate">
-                        <label for="parent_name">Father's Name: <?php echo $row1['Father_Name'];?></label>
+                        <input id="Father_name" type="text" class="validate"  onblur="name_validate(document.getElementById('Father_Name'))">
+                        <label for="Father_Name">Father's Name: <?php echo $row1['Father_Name'];?></label>
                       </div>
 					  <div class="input-field col s6">
-                        <input id="parent_name" type="text" class="validate">
+                        <input id="Mother_Name" type="text" class="validate" onblur="name_validate(document.getElementById('Mother_Name'))">
                         <label for="parent_name">Mother's Name: <?php echo $row1['Mother_Name'];?></label>
                       </div>
                     </div>
                     <div class="row">
                           
                           <div class="input-field col s6">
-                                  <input id="Contact" type="number" class="validate">
+                                  <input id="Contact" type="number" class="validate" onblur="contact_validate()">
                                   <label for="Contact">Contact: <?php echo $row1['Contact_No'];?></label>
                           </div>
 						  <div class="input-field col s6">
-                              <input id="parent_email" type="email" class="validate">
+                              <input id="parent_email" type="email" class="validate" onblur="mail_validate()">
                               <label for="parent_email">E-mail: <?php echo $row1['Email_Id'];?></label>
                       </div>
                       </div>
@@ -166,7 +166,7 @@ if(!isset($_SESSION['Index_No']))
                             <label for="percentage">Percentage: <?php echo $row1['Percentage'];?></label>
                           </div>
                         </div>
-						 <input type="button" onclick="update.php" value="Update details" class="btn">
+						 <input type="button" onclick="viewStud.php" value="Update details" class="btn">
 						<br><br>
 						<h4>Extra Curriculum</h4>
                                         <div class="card-content">
@@ -291,6 +291,95 @@ if(!isset($_SESSION['Index_No']))
     close: 'Ok',
     closeOnSelect: false // Close upon selecting a date,
   });
+  
     </script>
+	<script>
+		function contact_validate()
+			{
+				var a=document.getElementById("Contact").value;
+				var len=a.length;
+				if(a.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)&&len==10)
+				{
+					document.getElementById("Contact_No").style.borderColor="green";
+					document.getElementById("submit").disabled=false;
+				}
+				else
+				{
+					document.getElementById("Contact_No").style.borderColor="red";
+					document.getElementById("Contact_No").placeholder="\t\t\tPlease enter a valid Contact number";
+					document.getElementById("submit").disabled=true;
+				} 
+			}
+			function date_validate()
+			{
+				var a=document.getElementById("dob").value;
+				var eighteenYearsAgo = moment().subtract(5, "years");
+				var birthday = moment(date);
+				if (!birthday.isValid())
+				{
+				return "invalid date";    
+				}	
+				else if (eighteenYearsAgo.isAfter(birthday))
+				{	
+					return "okay, you're good";    
+				}
+				else 
+				{
+					alert("Sorry your child does not belong here");
+				}
+			}
+		</script>
+		<script>
+			function mail_validate()
+			{
+				var a=document.getElementById("Email_Id").value;
+				if(a.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/))
+				{
+					document.getElementById("Email_Id").style.borderColor="green";
+					document.getElementById("submit").disabled=false;
+				}
+				else
+				{
+					document.getElementById("Email_Id").style.borderColor="red";
+					document.getElementById("Email_Id").placeholder="\t\t\t Please enter a valid Email ID";
+					document.getElementById("submit").disabled=true;
+				} 
+			}
+		</script>
+		<script>
+			function name_validate(a)
+			{
+				var b=a.value;
+				if(b.match(/^[A-Za-z\s]+$/))
+				{
+					a.style.borderColor="green";
+					document.getElementById("submit").disabled=false;
+				}	
+				else
+				{
+					a.style.borderColor="red";
+					a.placeholder="\t\t\t\t  Please enter a valid Name";
+					document.getElementById("submit").disabled=true;
+				}
+			}
+		</script>
+		<script>
+			function adhar_validate()
+			{
+				var a=document.getElementById("Aadhar_No").value;
+				var len=a.length;															
+				if(a.match(/([0-9]{12})$/)&&len==12)
+				{
+					document.getElementById("Aadhar_No").style.borderColor="green";
+					document.getElementById("submit").disabled=false;
+				}	
+				else
+				{
+					document.getElementById("Aadhar_No").style.borderColor="red";
+					document.getElementById("Aadhar_No").placeholder="\t\t\tPlease enter a valid Aadhar number";
+					document.getElementById("submit").disabled=true;
+				}
+			}
+		</script>
 </body>
 </html>
