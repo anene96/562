@@ -13,10 +13,10 @@
     $password = mysqli_real_escape_string($conn,htmlspecialchars($_POST['password'])); 
      
 	 
-    echo $password = md5($password);
+    //echo $password = md5($password);
 	 
 	 
-	$sql = "SELECT * FROM `School_Representative` WHERE R_Name = '$username' AND R_Password='$password'";
+	$sql = "SELECT * FROM `school_Representatives` WHERE R_Email = '$username' AND R_Password='$password'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {

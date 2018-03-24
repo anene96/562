@@ -10,6 +10,15 @@
 /* === Material Design framework === */
 /*-------------------------------------------------------------------*/
 /* === Import template variables === */
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+  }
+
+  main {
+    flex: 1 0 auto;
+  }
 @keyframes mdc-ripple-fg-radius-in {
   from {
     animation-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
