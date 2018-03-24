@@ -20,32 +20,26 @@
      <title>Login1</title>
    </head>
 <body>
-    <nav>
-        <div class="nav-wrapper blue">
+    
+	<nav>
+        <div class="nav-wrapper light blue">
          <!-- SIDENAV -->
-        <div>
-        
-     
-		<ul id="nav-mobile" class="left hide-on-med-and-down">
-			<li><a href="#"><img src="logo.jpeg" alt="HTML5 Icon" style="width:64px;height:64px;"></a></li>
-			<li><a href="..\add_school\addSchool.html">Register School</a></li>
-			<li><a href="..\stud_auth\login.php">School Representative</a></li>
-			<li><a href="..\govt_auth\login.php">Government Authority</a></li>
-		</ul>
-        <a href="#"  class="brand-logo center"><font color="black"></font></a>
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="javascript:popup('EMAIL ID: hackathon562@gmail.com');">Contact Us</a></li>
-			<li><a href="..\dashboard\aboutpage.php">About Us</a></li>
-        </ul>
-		</div>
-
-        
-
-        <ul id="nav-mobile" class="right hide-on-med-and-down">
-            <li><a href="..\dashboard\dashboard.html">Home</a></li>
-        </ul>
+			<div>
+				<ul id="nav-mobile" class="left hide-on-med-and-down">
+					<li><img src="logo.jpeg" alt="HTML5 Icon" style="width:64px;height:64px;"></li>
+					<li><a href="..\add_school\addSchool.html">Register School</a></li>
+					<li><a href="..\stud_auth\login.php">School Representative</a></li>
+					<li><a href="..\govt_auth\login.php">Government Authority</a></li>
+				</ul>
+				<a href="#"  class="brand-logo center"><font color="black"></font></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<li><a href="javascript:popup('EMAIL ID: hackathon562@gmail.com');">Contact Us</a></li>
+					<li><a href="..\dashboard\aboutpage.php">About Us</a></li>
+				</ul>
+			</div>
         </div>
-    </nav>    <div class="container">
+    </nav>
+    <div class="container">
                 
                 <div class="row">
                     <div class="col s12">

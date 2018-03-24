@@ -12,29 +12,8 @@
      <title>About Us</title>
    </head>
 <body bgcolor="white">
-        <nav>
-        <div class="nav-wrapper light blue">
-         <!-- SIDENAV -->
-		 <div>
-        
-     
-		<ul id="nav-mobile" class="left hide-on-med-and-down">
-			<li><a href="dashboardnew1.html"><img src="logo.jpeg" alt="HTML5 Icon" style="width:64px;height:64px;"></a></li>
-			<li><a href="..\add_school\addSchool.html">Register School</a></li>
-			<li><a href="..\stud_auth\login.php">School Representative</a></li>
-			<li><a href="..\govt_auth\login.php">Government Authority</a></li>
-		</ul>
-        <a href="#"  class="brand-logo center"><font color="black">GH-24</font></a>
-		<ul id="nav-mobile" class="right hide-on-med-and-down">
-			<li><a href="javascript:popup('EMAIL ID: hackathon562@gmail.com');">Contact Us</a></li>
-			<li><a href="..\dashboard\aboutpage1.php">About Us</a></li>
-        </ul>
-		</div>
-
-        
-        
-        </div>
-    </nav>        <div class="container">
+        <?php include("header.php");?>
+        <div class="container">
                 
 
             
@@ -53,7 +32,7 @@ A team of 8 members put it's efforts together to achieve this goal.
 The team consisted of:<br>
 1. Nancy Parekh(Leader)&nbsp &nbsp   2.Milind Parvatia<br>
 3.Kunal Shah&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 4.Harsh Shah<br>
-5.Keerthana K&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 6.Anushka<br>
+5.Keerthana K&nbsp &nbsp  &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 6.Anushka Nene<br>
 7.Himanshu&nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 8.Keval</font>
                             </div>
                         </div>
