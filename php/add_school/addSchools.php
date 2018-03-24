@@ -5,39 +5,33 @@ require "conn.php";
 			
             $Index_No=$_POST['Index_No'];
             $Password=$_POST['Password'];
-            $Email_Id=$_POST['Email_Id']; 
             $R_Name = $_POST["R_Name"];
-            $R_Email = $_POST["R_Email"];
+            $Email_Id = $_POST["Email_Id"];
             $Mobile_No = $_POST["Mobile_No"];
             $R_Password=$_POST['R_Password'];
 
-             $R_Password = md5($R_Password);      
-
-			$sql = "SELECT * FROM School_Index WHERE Index_No ='$Index_No' and Password ='$Password'";
-
-
+                    $sql=" SELECT * FROM schools where Index_No='$Index_No' and Password='$Password'";
                         if($conn->query($sql))
 						{
-							$query = "INSERT INTO School_Registration (School_Name,Index_No,School_Address,District,Email_Id,Phone_No,Board,School_Type)
-						VALUES ('$School_Name','$Index_No','$Address','$District','$Email_Id','$Phone_No','$Board','$Type')";
-
-  $result = $conn->query($query); 
-						if ($result === TRUE) {
-							$sql3 = "INSERT INTO School_Representative (Index_No, R_Name, R_Email,R_Password,Mobile_No) 
-VALUES ('$Index_No','$R_Name','$R_Email','$R_Password','$Mobile_No')";
-$results = $conn->query($sql3); 
+							$sql3 = "INSERT INTO school_representatives (Index_No, R_Name, R_Email,R_Password,Phone_No) 
+										VALUES ('$Index_No','$R_Name','$Email_Id','$R_Password','$Mobile_No')";
+							$results = $conn->query($sql3); 
                             if ($results=== TRUE) {
                   
 			
-                                    header("location:..\dashboard\dashboard.html");
+                                   header("location:..\stud_auth\login.php");
                                 }
                             }
 						else {
-							echo "Error: " . $sql . "<br>" . $conn->error;
+							?> <script> alert("School Index not registered"); </script> <?php
 						}
-						}
+						
 
 
-
+// if (($conn->query($query1)) ) {
+//     echo "School Registered ";
+// } else{
+//     echo "School index or password did not match";
+//     }
 }
 ?>
