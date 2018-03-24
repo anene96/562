@@ -1,14 +1,14 @@
 <?php
-$servername = "hackathon.cjiw8s8d9hut.ap-south-1.rds.amazonaws.com";
-$username = "milind";
-$password = "parvatia";
+$servername = "hackathon.local";
+$username = "root";
+$password = "123456";
 
 // Create connection
-$conn = mysqli_connect($servername, $username, $password,"hackathon");
+$conn = mysqli_connect($servername, $username, $password,"hack");
 
 // Check connection
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
-echo "Connected successfully";
+//echo "Connected successfully";
 ?>
