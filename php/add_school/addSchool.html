@@ -14,19 +14,21 @@
 	<nav>
         <div class="nav-wrapper light blue">
          <!-- SIDENAV -->
-			<div>
-				<ul id="nav-mobile" class="left hide-on-med-and-down">
-					<li><img src="logo.jpeg" alt="HTML5 Icon" style="width:64px;height:64px;"></li>
-					<li><a href="..\add_school\addSchool.html">Register School</a></li>
-					<li><a href="..\stud_auth\login.php">School Representative</a></li>
-					<li><a href="..\govt_auth\login.php">Government Authority</a></li>
-				</ul>
-				<a href="#"  class="brand-logo center"><font color="black"></font></a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-					<li><a href="javascript:popup('EMAIL ID: hackathon562@gmail.com');">Contact Us</a></li>
-					<li><a href="..\dashboard\aboutpage.php">About Us</a></li>
-				</ul>
-			</div>
+		 <div>
+        
+     
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li><img src="logo.jpeg" alt="HTML5 Icon" style="width:64px;height:64px;"></li>
+			<li><a href="..\add_school\addSchool.html">Register School Representative</a></li>
+			<li><a href="..\stud_auth\login.php">School Representative Login</a></li>
+			<li><a href="..\govt_auth\login.php">Government Authority Login</a></li>
+		</ul>
+        <a href="#"  class="brand-logo center"><font color="black"></font></a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a href="javascript:popup('EMAIL ID: hackathon562@gmail.com');">Contact Us</a></li>
+			<li><a href="..\dashboard\aboutpage.php">About Us</a></li>
+        </ul>
+		</div>
         
         </div>
     </nav>
@@ -38,7 +40,7 @@
                         <div id="main" class="card">
                             <div class="card-content">
                                 <span class="card-title"> 
-                                    <h2><b>School Registration</b></h2>
+                                    <h2><b>School Representative Registration</b></h2>
                                     </span>
                                         <div>
                                           <h4>School's Information</h4>
@@ -47,7 +49,7 @@
                                                     
                                                   <div class="row">
 												  <div class="input-field col s6">
-                                                            <input required id="Index_No" name="Index_No" type="text" autofocus class="validate">
+                                                            <input required id="Index_No" name="Index_No" required type="text" autofocus class="validate">
                                                             <label for="Index_No">Index No</label>
                                                         </div>
                                                     <div class="input-field col s6">
@@ -62,21 +64,21 @@
                                                     </span>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="R_Name" name="R_Name" onblur="name_validate(document.getElementById('R_Name'))"type="text" autofocus class="validate">
+                                                            <input id="R_Name" name="R_Name" required onblur="name_validate(document.getElementById('R_Name'))"type="text" autofocus class="validate">
                                                             <label for="R_Name">Representative Name</label>
                                                         </div>
                                                         <div class="input-field col s6">
-                                                            <input id="Email_Id" name="Email_Id" onblur="mail_validate()" type="text" autofocus class="validate">
+                                                            <input id="Email_Id" name="Email_Id" required onblur="mail_validate()" type="text" autofocus class="validate">
                                                             <label for="Email_Id">Email</label>
                                                         </div>
                                                     </div>
                                                     <div class="row">
                                                         <div class="input-field col s6">
-                                                            <input id="R_Password" name="R_Password" type="password" autofocus class="validate">
+                                                            <input id="R_Password" name="R_Password" required type="password" autofocus class="validate">
                                                             <label for="Password">Password</label>
                                                         </div>
 														<div class="input-field col s6">
-                                                            <input id="Cpassword" onblur="pass_validate()"name="Cpassword" type="password" autofocus class="validate">
+                                                            <input id="Cpassword" onblur="pass_validate()" required name="Cpassword" type="password" autofocus class="validate">
                                                             <label for="Cpassword">Confirm Password</label>
                                                         </div>
 														
@@ -84,12 +86,12 @@
                                                     </div>
                                                     <div class="row">
 															<div class="input-field col s6">
-                                                            <input id="Mobile_No" name="Mobile_No" placeholder="+91"onfocus=document.getElementById("Mobile_No").value="" onblur="contact_validate()" type="text" autofocus class="validate">
+                                                            <input id="Mobile_No" name="Mobile_No" placeholder="+91" required  onblur="contact_validate()" type="text" autofocus class="validate">
                                                             <label for="Mobile_No">Mobile No</label>      
                                                         </div>
                             
                                                     </div>
-                                                    <input class="btn waves-effect waves-light" type="submit" name="submit" id="submit" disabled="disabled" value="Add Representative" />
+                                                    <input class="btn waves-effect waves-light" type="submit" name="submit" id="submit"  value="Add Representative" />
                                                   </form>
                                                         </div>
                                                       </div>
@@ -108,8 +110,13 @@
 		{
 			var pass=document.getElementById('R_Password').value;
 			var cpass=document.getElementById('Cpassword').value;
-			if(pass!=cpass)
+			if(pass!=cpass){
 					alert('Confirm password does not match');
+					document.getElementById("submit").disabled=true;
+					}
+			else{
+				document.getElementById("submit").disabled=false;
+			}		
 		}
 		function contact_validate()
 		{
@@ -118,11 +125,13 @@
 				if(a.match(/^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/)&&len==10)
 				{
 				  document.getElementById("Mobile_No").style.borderColor="green";
+				  document.getElementById("submit").disabled=false;
 				}
 				 else
 				{
 					document.getElementById("Mobile_No").style.borderColor="red";
-					document.getElementById("Mobile_No").value="\t\t\tPlease enter a valid Contact number";
+					document.getElementById("Mobile_No").placeholder="\t\t\tPlease enter a valid Contact number";
+					document.getElementById("submit").disabled=true;
 				} 
 		}
 		function mail_validate()
@@ -131,11 +140,13 @@
 			if(a.match(/^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/))
 			{
 				 document.getElementById("Email_Id").style.borderColor="green";
+				 document.getElementById("submit").disabled=false;
 			}
 			 else
 			{
 				document.getElementById("Email_Id").style.borderColor="red";
-				document.getElementById("Email_Id").value="\t\t\t Please enter a valid Email ID";
+				document.getElementById("Email_Id").placeholder="\t\t\t Please enter a valid Email ID";
+				document.getElementById("submit").disabled=true;
 			} 
 		}
 		
@@ -145,37 +156,19 @@
 			if(b.match(/^[A-Za-z\s]+$/))
 			{
 				a.style.borderColor="green";
+				document.getElementById("submit").disabled=false;
 			}	
 			else
 			{
 																				
 					a.style.borderColor="red";
-					a.value="\t\t\t\t  Please enter a valid Name";
+					a.placeholder="\t\t\t\t\t\t Please enter a valid Name";
+					document.getElementById("submit").disabled=true;
 				}
 																				
 		}
 		
-		(function() {
-				$('form > input').keyup(function()
-				{
-					var empty = false;
-					$('form > input').each(function()
-					{
-						if ($(this).val() == '') {
-							empty = true;
-						}
-					});
-
-					if (empty)
-					{
-						$('#register').attr('disabled', 'disabled');
-					} 
-					else 
-					{
-						$('#submit').removeAttr('disabled');
-					}
-    });
-})()
+		
 
 	</script>	
 	

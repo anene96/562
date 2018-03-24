@@ -12,7 +12,27 @@
      <title>About Us</title>
    </head>
 <body bgcolor="white">
-        <?php include("header.php");?>
+        <nav>
+        <div class="nav-wrapper light blue">
+         <!-- SIDENAV -->
+		 <div>
+        
+     
+		<ul id="nav-mobile" class="left hide-on-med-and-down">
+			<li><img src="logo.jpeg" alt="HTML5 Icon" style="width:64px;height:64px;"></li>
+			<li><a href="..\add_school\addSchool.html">Register School Representative</a></li>
+			<li><a href="..\stud_auth\login.php">School Representative Login</a></li>
+			<li><a href="..\govt_auth\login.php">Government Authority Login</a></li>
+		</ul>
+        <a href="#"  class="brand-logo center"><font color="black"></font></a>
+		<ul id="nav-mobile" class="right hide-on-med-and-down">
+			<li><a href="javascript:popup('EMAIL ID: hackathon562@gmail.com');">Contact Us</a></li>
+			<li><a href="..\dashboard\aboutpage.php">About Us</a></li>
+        </ul>
+		</div>
+        
+        </div>
+    </nav>
         <div class="container">
                 
 
